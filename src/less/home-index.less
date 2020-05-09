@@ -1,0 +1,824 @@
+// 复用产品模块样式
+@product-price: #a71c60;
+// 按钮颜色
+@btn-color-default: #fff;
+// 主色
+@color-main: #fb7e00;
+// #222 字体颜色
+@color-2: #222;
+
+// video button
+.view-button {
+  height: 50px;
+  width: 50px;
+  position: absolute !important;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  line-height: 50px;
+  border-radius: 50%;
+  color: #222222;
+  background: #fff;
+}
+// show now按钮封装
+.main-btn {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 50px;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  border: 1px solid @btn-color-default;
+  background-color: @btn-color-default;
+  padding: 0 50px;
+  cursor: pointer;
+}
+// 按钮hover动画
+.hover-status {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: @btn-color-default;
+  z-index: -1;
+  opacity: .4;
+  top: 5px;
+  left: 5px;
+  transition: all 0.4s ease-out 0s;
+}
+.main-btn:hover .hover-status {
+  top: 0;
+  left: 0;
+  transition: all 0.5s ease-out 0s;
+}
+// 按钮封装结束
+img {
+  max-width: 100%;
+}
+// Home1 Start
+// 圆形形状产品样式
+.product-area {
+  padding: 57px 0 21px 0;
+  .product-area-cont {
+    width: 1140px;
+    margin: 0 auto;
+  }
+  .product-area-lists {
+    width: 100%;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-around;
+  }
+  .product-area-list {
+    width: 25%;
+    text-align: center;
+    cursor: pointer;
+    .pro-img {
+      width: 75%;
+      display: inline-block;
+      border-radius: 50%;
+    }
+    .product-name {
+      padding-top: 15px;
+      color: #222;
+    }
+  }
+  .product-area-list {
+    .pro-img {
+      transition: all 0.3s ease-out 0s;
+    }
+  }
+  .product-area-list:hover .pro-img {
+    box-shadow: 0px 15px 38px 0px rgba(0, 79, 104, 0.2);
+    transition: all 0.3s ease-out 0s;
+  }
+  .product-area-list:nth-child(1),
+  .product-area-list:nth-child(3),
+  .product-area-list:nth-child(5) {
+    margin-top: 30px;
+  }
+  .product-area-list:nth-child(2),
+  .product-area-list:nth-child(4) {
+    margin-top: 60px;
+  }
+}
+// 通用模块样式
+.products-box {
+  padding-bottom: 83px;
+  .products-cont {
+    width: 1140px;
+    margin: 0 auto;
+    padding: 0 15px;
+    .products-lists {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      .products-list {
+        width: 33.3333%;
+        padding: 0 15px;
+        img {
+          // width: 100%;
+          width: 350px;
+          height: 350px;
+        }
+      }
+      .product-title {
+        font-size: 16px;
+        font-weight: 600;
+        font-family: "Poppins", sans-serif;
+        color: #222222;
+        padding-top: 25px;
+        padding-bottom: 5px;
+      }
+      .product-price, .product-oldprice {
+        font-size: 14px;
+      }
+      .product-price {
+        color: @product-price;
+      }
+      .product-oldprice {
+        color: #888;
+        text-decoration: line-through;
+      }
+    }
+  }
+}
+
+// 视频内容组件样式
+.home-video {
+  position: relative;
+  .home-video-box {
+    width: 1140px;
+    padding: 0 15px;
+    margin: 0 auto;
+    .home-video-cont {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      // 标题
+      .home-video-title {
+        padding: 80px 0 25px 240px;
+        .title-top {
+          font-size: 28px;
+          font-weight: 600;
+          color: #222222;
+          font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .title-bottom {
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 24px;
+          color: #888;  
+        }
+      }
+      // 视频部分
+      .home-video-item {
+        margin-top: 30px;
+        position: relative;
+        // 中心视频播放按钮
+        .view-button {
+          height: 60px;
+          width: 60px;
+          line-height: 60px;
+          z-index: 10;
+          animation: myanimate 1s infinite;
+          .icon-f10:before {
+            font-size: 24px;
+          }
+        }
+      }
+    }
+  }
+  // 浅蓝色占位内容
+  .home-video-occupy {
+    position: absolute;
+    width: 550px;
+    height: 570px;
+    background: #f1f7f7;
+    left: 0;
+    top: 0;
+    z-index: -1;
+  }
+  
+  // 视频弹出内容样式
+  .play-video-cont {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 100;
+    .video-box {
+      width: 900px;
+      padding: 0 8px;
+      margin: 0 auto;
+      .video-item {
+        width: 100%;
+        max-width: 900px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        video {
+          width: 100%;
+          height: 100%;
+        }
+        video:focus {
+          outline-color: transparent;
+        }
+        .close-video {
+          position: absolute;
+          top: -30px;
+          right: 0;
+          color: #d4ded4;
+          .icon-quxiao:before {
+            font-size: 12px;
+            font-weight: 900;
+          }
+        }
+        .close-video:hover {
+          color: #fff;
+        }
+      }
+    }
+  }
+  
+}
+
+// 水波纹特效开始
+.effect-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #fff;
+  opacity: 0.5;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  // z-index: -100;
+  animation: myani 1.75s infinite;
+}
+@keyframes myani {
+  from {
+    width: 50px;
+    height: 50px;
+    opacity: 0.8;
+  }
+  to {
+    width: 110px;
+    height: 110px;
+    opacity: 0;
+  }
+}
+// 水波纹特效结束
+
+// From the farm & Extra 20% Off Start
+.discount-area {
+  padding-bottom: 90px;
+  .discount-area-box {
+    // width: 1140px;
+    .discount-item {
+      width: 100%;
+      margin-top: 30px;
+      color: #fff;
+      display: flex;
+      justify-content: space-around;
+    }
+    // left
+    .discount-item-left {
+      margin-right: 15px;
+      background: url(../img/discount_bg_1.jpg) no-repeat;
+    }
+    // right
+    .discount-item-right {
+      margin-left: 15px;
+      background: url(../img/discount_bg_2.jpg) no-repeat;
+      // 按钮样式重写
+      .main-btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #222;
+      }
+    }
+    .bg-item {
+      text-align: center;
+      height: 330px;
+      padding-top: 50px;
+      position: relative;
+      background-position: center center;
+      background-size: cover;
+      width: 100%;
+    }
+    // 标题
+    .discount-title {
+      width: 100%;
+      text-align: center;
+      .discount-title-top {
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: 3px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      }
+      .discount-title-bottom {
+        font-size: 72px;
+        font-family: "CommercialScript BT";
+        padding-bottom: 30px;
+      }
+    }
+  }
+}
+//From the farm & Extra 20% Off End
+
+
+// Latest News Start
+.latestnews-box {
+  width: 1140px;
+  margin: 0 auto;
+  // padding: 0 15px;
+  padding-bottom: 83px;
+  .latestnews-cont {
+    width: 100%;
+    color: #222;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  .news-title {
+    width: 50%;
+    display: inline-block;
+    padding: 0 15px;
+    padding-bottom: 40px;
+  }
+  .news-title-top {
+    font-size: 35px;
+    font-weight: 600;
+    padding-bottom: 14px;
+  }
+  .news-title-bottom {
+    font-size: 15px;
+    color: #888;
+    padding: 0 70px 25px;
+    line-height: 24px;
+  }
+  .news-cont {
+    display: flex;
+    text-align: left;
+    padding-bottom: 52px;
+    justify-content: space-around;
+  }
+  .news-cont-item {
+    text-align: center;
+    vertical-align: middle;
+    padding: 0 15px;
+    position: relative;
+    img {
+      vertical-align: middle;
+      border-style: none;
+    }
+  }
+  .item-name {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #555;
+    background: #fff;
+    border: 1px solid #eee;
+    padding: 0 16px;
+    line-height: 44px;
+    letter-spacing: 3px;
+  }
+  .news-cont-item:nth-child(1), .news-cont-item:nth-child(3) {
+    margin-top: 125px;
+  }
+  .news-cont-item .news-cont-item:nth-child(2) {
+    margin-top: 30px;
+  }
+  .item-descript {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 26px;
+    color: #222;
+  }
+  .look-more {
+    color: @color-main;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: underline;
+    letter-spacing: 2px;
+  }
+}
+// Latest News End
+
+// bottom product Start
+.instagram-area {
+  margin-bottom: 90px;
+  .instagram-box {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    position: relative;
+  }
+  .area-item {
+    vertical-align: middle;
+    text-align: center;
+    position: relative;
+    img {
+      vertical-align: middle;
+    }
+  }
+  .area-title {
+    padding: 0 80px;
+    color: @color-2;
+    font-size: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #fff;
+    line-height: 60px;
+    z-index: 10;
+    letter-spacing: 3px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  .view-button {
+    z-index: 10;
+    display: none;
+    .icon-instagram {
+      font-size: 24px;
+    }
+  }
+  .effect-button {
+    display: none;
+    animation: myanimation 2s infinite;
+  }
+  @keyframes myanimation {
+    from {
+      width: 50px;
+      height: 50px;
+      opacity: 0.8;
+    }
+    to {
+      width: 80px;
+      height: 80px;
+      opacity: 0;
+    }
+  }
+  .area-item:hover .view-button,
+  .area-item:hover .effect-button{
+    display: block;
+  }
+}
+// bottom product end
+
+// Home1 End
+
+
+// Responsive Start
+@media (min-width: 992px) and (max-width:1200px) {
+  // 顶部圆形产品
+  .product-area {
+    .product-area-cont {
+      width: 960px;
+    }
+  }
+  // 通用模块产品调屏
+  .products-box {
+    .products-cont {
+      width: 960px;
+      .products-lists{
+        .products-list{
+          img{
+            width: 290px;
+            height: 290px;
+          }
+        }
+      }
+    }
+  }
+  // 播放视频样式
+  .home-video {
+    .home-video-box {
+      width: 960px;
+    }
+  }
+  // Latest News
+  .latestnews-box {
+    width: 960px;
+  }
+}
+@media (min-width: 767px) and (max-width:992px) {
+  // 顶部圆形产品
+  .product-area {
+    .product-area-cont {
+      width: 720px;
+    }
+  }
+  // 通用模块产品调屏
+  .products-box {
+    .products-cont {
+      width: 720px;
+        .products-lists{
+          .products-list{
+            img{
+              width: 210px;
+              height: 210px;
+            }
+          }
+        }
+    }
+    .item-descript {
+      font-size: 16px;
+    }
+  }
+  // 播放视频样式
+  .home-video {
+    .home-video-box {
+      width: 720px;
+      .home-video-cont {
+        .home-video-title {
+          padding-left: 150px;
+        }
+      }
+    }
+    // 蓝色占位
+    .home-video-occupy {
+      width: 400px;
+      height: 470px;
+    }
+    // 弹出部分
+    .play-video-cont {
+      .video-box {
+        width: 800px;
+        .video-item {
+          width: 100%;
+          max-width: 800px;
+        }
+      }
+    }
+  }
+  // discount-product
+  .discount-area {
+    .discount-area-box {
+      .discount-item {
+        flex-wrap: wrap;
+      }
+      .bg-item {
+        width: 100%;
+        margin: 0;
+      }
+      .discount-item-right {
+        margin-top: 30px;
+      }
+    }
+  }
+  // Latest News
+  .latestnews-box {
+    width: 720px;
+    .news-title {
+      width: 90%;
+    }
+  }
+  // Bottom Products
+  .instagram-area {
+    .instagram-box {
+      flex-wrap: wrap;
+      padding: 0 20px;
+    }
+    .area-item {
+      width: 24%;
+      margin-top: 10px;
+    }
+  }
+}
+@media (min-width: 576px) and (max-width:768px) {
+  // 顶部圆形产品
+  .product-area {
+    .product-area-cont {
+      width: 540px;
+    }
+  }
+  // 通用模块产品调屏
+  .products-box {
+    .products-cont {
+      width: 540px;
+      .products-lists {
+        flex-wrap: wrap;
+        justify-content: center;
+        .products-list {
+          width: 50%;
+          img{
+            width: 240px;
+            height: 240px;
+          }
+        }
+      }
+    }
+  }
+  // 播放视频样式
+  .home-video {
+    .home-video-box {
+      width: 540px;
+      .home-video-cont {
+        .home-video-title {
+          padding-left: 20px;
+        }
+      }
+    }
+    // 蓝色占位
+    .home-video-occupy {
+      width: 300px;
+      height: 350px;
+    }
+    // 弹出部分
+    .play-video-cont {
+      .video-box {
+        width: 600px;
+        .video-item {
+          width: 100%;
+          max-width: 600px;
+        }
+      }
+    }
+  }
+  // discount-product
+  .discount-area {
+    .discount-area-box {
+      .discount-item {
+        flex-wrap: wrap;
+      }
+      .bg-item {
+        width: 100%;
+        margin: 0;
+      }
+      .discount-item-right {
+        margin-top: 30px;
+      }
+    }
+  }
+  // Latest News
+  .latestnews-box {
+    width: 540px;
+    .news-cont {
+      flex-wrap: wrap;
+      justify-content: center !important;
+    }
+    .news-cont-item {
+      width: 100%;
+    }
+    .news-cont-item.same-item,.news-cont-item.unique-item {
+      margin-top: 40px;
+    }
+    .news-title {
+      width: 100%;
+    }
+  }
+  // Bottom Products
+  .instagram-area {
+    .instagram-box {
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0 10px;
+    }
+    .area-item {
+      width: 50%;
+      margin-top: 10px;
+      padding: 10px;
+      img {
+        width: 100%;
+      }
+    }
+    .area-title {
+      top: 10px;
+      padding: 0 60px;
+    }
+  }
+  
+}
+@media only screen and (max-width:576px) {
+  // 顶部圆形产品
+  .product-area {
+    .product-area-cont {
+      width: 100%;
+    }
+    .product-area-lists {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .product-area-list {
+      width: 100%;
+    }
+  }
+  // 通用模块产品调屏
+  .products-box {
+    .products-cont {
+      width: 100%;
+      .products-lists {
+        flex-wrap: wrap;
+        justify-content: center;
+        .products-list {
+          width: 100%;
+          img {
+            width: 100%;
+            min-width: 220px;
+            min-height: 220px;
+          }
+        }
+      }
+    }
+  }
+  // 播放视频样式
+  .home-video {
+    .home-video-box {
+      width: 100%;
+      .home-video-cont {
+        .home-video-title {
+          padding-left: 0;
+        }
+      }
+    }
+    // 蓝色占位
+    .home-video-occupy {
+      display: none;
+    }
+    // 弹出部分
+    .play-video-cont {
+      .video-box {
+        width: 480px;
+        .video-item {
+          width: 100%;
+          max-width: 480px;
+        }
+      }
+    }
+  }
+  // discount-product
+  .discount-area {
+    .discount-area-box {
+      .discount-item {
+        flex-wrap: wrap;
+      }
+      .bg-item {
+        width: 100%;
+        margin: 0;
+      }
+      .discount-item-right {
+        margin-top: 30px;
+      }
+      .discount-title {
+        .discount-title-bottom {
+          font-size: 46px;
+        }
+      }
+    }
+  }
+  // Latest News
+  .latestnews-box {
+    width: 100%;
+    .news-cont {
+      flex-wrap: wrap;
+      justify-content: center !important;
+    }
+    .news-cont-item {
+      width: 100%;
+      img {
+        width: 100%;
+      }
+    }
+    .news-cont-item.same-item,.news-cont-item.unique-item {
+      margin-top: 40px;
+    }
+    .news-title {
+      width: 100%;
+    }
+  }
+  // Bottom Products
+  .instagram-area {
+    .instagram-box {
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0 15px;
+    }
+    .area-item {
+      width: 100%;
+      margin-top: 10px;
+      img {
+        width: 100%;
+        padding: 15px;
+      }
+    }
+    .area-title {
+      top: 10px;
+      padding: 0 60px;
+    }
+  }
+}
+// Responsive End
